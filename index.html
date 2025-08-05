@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>雲嘉南獸醫資源地圖</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <button onclick="showTab('map')">獸醫院地圖</button>
+    <button onclick="showTab('resources')">寵物疾病學習</button>
+  </nav>
+
+  <div id="map" class="tab">
+    <iframe src="https://www.google.com/maps/d/embed?mid=1CFilHcSSm6R30p8HkL1ojVNqtmBMV5k&ehbc=2E312F" width="100%" height="480"></iframe>
+    <table id="hospital-table"><thead></thead><tbody></tbody></table>
+  </div>
+
+  <div id="resources" class="tab" style="display:none">
+    <table id="resource-table"><thead></thead><tbody></tbody></table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
