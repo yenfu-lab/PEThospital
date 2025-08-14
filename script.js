@@ -42,7 +42,16 @@ function createTable(tableId, data) {
 
     if (typeof val === 'string' && val.startsWith('http')) {
       // 網址連結欄位，自動加超連結
-      td.innerHTML = `<a href="${val}" target="_blank">前往</a>`;
+      //td.innerHTML = `<a href="${val}" target="_blank">前往</a>`;
+      const btn = document.createElement('button');
+      btn.textContent = '查看';
+      btn.onclick = () => {
+        const encodedFilename = encodeURIComponent(val);
+        window.open(val, '_blank');
+        const preview = document.getElementById('preview-container');
+        preview.innerHTML = `<a href="${val}" target="_blank">前往</a>`;
+      };
+      td.appendChild(btn);
     } else if (h === '資源連結') {
       // 如果是學習資源的PDF/圖片檔案，顯示查看按鈕
       const btn = document.createElement('button');
@@ -90,4 +99,5 @@ function loadData(type, tableId) {
 // Load both on page load
 loadData('hospital', 'hospital-table');
 loadData('learning', 'resource-table');
+
 
